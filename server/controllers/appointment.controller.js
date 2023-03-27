@@ -4,9 +4,11 @@ exports.createAppointment = async (req, res) => {
   try {
     const doctorId = req.body.doctorId;
     const dateTime = new Date(req.body.dateTime);
+    const userId = req.body.userId;
     const newAppointment = await appointmentService.createAppointment(
       doctorId,
-      dateTime
+      dateTime,
+      userId
     );
     res.status(201).json(newAppointment);
   } catch (e) {

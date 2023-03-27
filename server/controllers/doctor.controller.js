@@ -1,8 +1,6 @@
 const db = require("../models");
 const Doctor = db.doctor;
 
-//TODO: Add auth check before doing any CRUD operations in this controller
-
 exports.createDoctor = async (req, res) => {
   /*
     Creates the Doctor in the database

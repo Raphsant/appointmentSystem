@@ -1,25 +1,34 @@
 const { Op } = require("sequelize");
-const Appointment = require("../models/appointment.model");
-const Doctor = require("../models/doctor.model");
+const db = require("../models");
+const Doctor = db.doctor;
+const User = db.user;
+const Appointment = db.appointment;
 
-async function createAppointment(doctorId, dateTime) {
+// const Doctor = require("../models/doctor.model");
+
+async function createAppointment(doctorId, dateTime, userId) {
   const doctor = await Doctor.findByPk(doctorId);
+  const patient = await User.findByPk(userId);
   if (!doctor) throw new Error("doctor not found");
 
   const existingAppointment = await Appointment.findOne({
+    include: {
+      model: Doctor,
+      where: { id: doctorId },
+      through: { attributes: [] },
+    },
     where: {
-      doctorId,
       dateTime: {
         [Op.eq]: dateTime,
       },
     },
   });
-  if (existingAppointment) throw new Error("Doctor is not available.");
 
   const newAppointment = await Appointment.create({
-    doctorId,
     dateTime,
   });
+  await newAppointment.addDoctor(doctor);
+  await newAppointment.addUser(patient);
 
   return newAppointment;
 }
@@ -43,10 +52,15 @@ async function updateAppointment(appointmentId, doctorId, dateTime) {
 
   // Check if doctor is available
   const existingAppointment = await Appointment.findOne({
+    include: {
+      model: Doctor,
+      where: { id: doctorId },
+      through: { attributes: [] },
+    },
     where: {
-      id: { [Op.ne]: appointmentId },
-      doctorId,
-      dateTime: { [Op.eq]: dateTime },
+      dateTime: {
+        [Op.eq]: dateTime,
+      },
     },
   });
 

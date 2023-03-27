@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("./models");
 const Role = db.role;
 const Doctor = db.doctor;
+const Appointment = db.appointment;
 
 const app = express();
 
@@ -38,36 +39,6 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   console.log("Drop and Resync Db");
-  initial();
 });
-
-function initial() {
-  Role.create({
-    id: 1,
-    name: "user",
-  });
-
-  Role.create({
-    id: 2,
-    name: "moderator",
-  });
-
-  Role.create({
-    id: 3,
-    name: "admin",
-  });
-  Doctor.create({
-    id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    specialty: "test1",
-  });
-  Doctor.create({
-    id: 2,
-    firstName: "Jane",
-    lastName: "Doe",
-    specialty: "test1",
-  });
-}
