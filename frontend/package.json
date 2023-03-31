@@ -1,0 +1,29 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "browser": "firefox",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
+    "nuxt": "^3.3.2"
+  },
+  "dependencies": {
+    "@formkit/nuxt": "^0.16.4",
+    "@formkit/themes": "^0.16.4",
+    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54",
+    "@nuxtjs/tailwindcss": "^6.6.4",
+    "@pinia/nuxt": "^0.4.7",
+    "@sidebase/nuxt-auth": "^0.4.4",
+    "autoprefixer": "^10.4.14",
+    "next-auth": "4.18.8",
+    "pinia": "^2.0.33",
+    "pinia-plugin-persistedstate": "^3.1.0",
+    "postcss": "^8.4.21"
+  }
+}
