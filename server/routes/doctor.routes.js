@@ -14,4 +14,5 @@ module.exports = function (app) {
   app.post("/api/doctor/edit", authJwt.verifyToken, controller.editDoctor);
   app.post("/api/doctor/delete", authJwt.verifyToken, controller.deleteDoctor);
   app.get("/api/doctor", authJwt.verifyToken, controller.getAllDoctors);
+  app.get("/api/getDoctor", authJwt.verifyToken, controller.getDoctor);
 };

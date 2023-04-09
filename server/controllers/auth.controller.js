@@ -60,7 +60,7 @@ exports.signin = (req, res) => {
 
       if (!passwordIsValid) {
         return res.status(401).send({
-          accessToken: null,
+          token: null,
           message: "Invalid Password!",
         });
       }
@@ -79,7 +79,7 @@ exports.signin = (req, res) => {
           username: user.username,
           email: user.email,
           roles: authorities,
-          accessToken: token,
+          token: token,
         });
       });
     })

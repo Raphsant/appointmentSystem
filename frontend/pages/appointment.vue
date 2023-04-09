@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-neutral-100 m-10 p-10 h-full" v-for="doctor in doctors">
-    <div class=" flex gap-10">
+  <div class="bg-neutral-100 m-10 p-10 h-full w-2/5" v-for="doctor in doctors">
+    <div class=" flex gap-5 flex-col">
       <div class="grow-1">
         <div class="text-5xl">
           {{doctor.firstName}}
@@ -12,9 +12,10 @@
           schedule
         </div>
       </div>
-      <div>
+      <div class="">
         <FormKit
             type="button"
+            @click="handleClick(doctor)"
             label="book now"
             :classes="{
       input: 'bg-green-500',
@@ -31,8 +32,15 @@ export default {
 }
 </script>
 <script setup>
+import {useAuthStore} from "../store/auth";
 const doctors = await useDoctors()
-console.log(doctors)
+const store = useAuthStore();
+
+const handleClick = (e) => {
+  return navigateTo(`doctor/${e.id}`)
+}
+
+
 </script>
 
 <style scoped>

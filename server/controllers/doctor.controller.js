@@ -3,8 +3,8 @@ const Doctor = db.doctor;
 
 exports.createDoctor = async (req, res) => {
   /*
-    Creates the Doctor in the database
-     */
+      Creates the Doctor in the database
+       */
   try {
     await Doctor.create({
       id: req.body.id,
@@ -53,5 +53,15 @@ exports.getAllDoctors = async (req, res) => {
   } catch (e) {
     console.error(e);
     res.status(500).send({ message: e.message });
+  }
+};
+
+exports.getDoctor = async (req, res) => {
+  try {
+    const doctor = await Doctor.findByPk(req.body.id);
+    if (!doctor) throw new Error("No doctor found");
+    await res.status(200).send(doctor);
+  } catch (e) {
+    res.status(400).send(e.message);
   }
 };

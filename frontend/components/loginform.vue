@@ -48,24 +48,17 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-import useSignIn from "~/composables/useSignIn";
 import {useAuthStore} from "~/store/auth";
 import {storeToRefs} from 'pinia'
+import useSignInTS from "~/composables/useSignInTS";
 
 const authStore = useAuthStore();
-const {addUser} = authStore;
-const {token} = storeToRefs(authStore)
 
-const test = () => {
-  console.log(JSON.parse((JSON.stringify(authStore.getUser))));
-}
-
-async function login(data) {
+async function login(data: any) {
   try {
-    console.log(data)
-    await useSignIn(data)
+    await useSignInTS(data)
     await new Promise((r) => setTimeout(r, 1000))
     return navigateTo("/")
   } catch (e) {
@@ -73,12 +66,6 @@ async function login(data) {
   } finally {
     console.log(JSON.parse((JSON.stringify(authStore.getUser))));
   }
-}
-</script>
-
-<script>
-export default {
-  name: "loginform"
 }
 </script>
 
