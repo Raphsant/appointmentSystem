@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
     specialty: {
-      type: DataTypes.ENUM("test1", "test2"),
+      type: DataTypes.ENUM("Medicina Interna", "test2"),
     },
     schedule: {
       type: Sequelize.JSONB,

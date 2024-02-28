@@ -8,6 +8,7 @@ export const useAuthStore = defineStore({
         username: "no username",
         isAdmin: false,
         token: null,
+        id: null,
       },
     };
   },
@@ -16,9 +17,10 @@ export const useAuthStore = defineStore({
     addUser(value: any) {
       this.user.username = value.username;
       this.user.token = value.token;
+      this.user.id = value.id
     },
   },
   getters: {
-    getUser: (state) => state.user,
+    getUser:  (state) => state.user,
   },
 });

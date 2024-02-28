@@ -28,6 +28,7 @@ export default async function (data: object) {
       authStore.addUser(res);
     }
   } catch (e) {
+    //@ts-ignore
     console.error(e.message);
   }
 }

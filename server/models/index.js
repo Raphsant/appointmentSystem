@@ -54,6 +54,13 @@ db.appointment.belongsToMany(db.user, {
   through: "user_appointments",
 });
 
+// Define the relationships
+db.user.hasMany(db.appointment, { foreignKey: 'userId' });
+db.appointment.belongsTo(db.user, { foreignKey: 'userId' });
+
+db.doctor.hasMany(db.appointment, { foreignKey: 'doctorId' });
+db.appointment.belongsTo(db.doctor, { foreignKey: 'doctorId' });
+
 db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;

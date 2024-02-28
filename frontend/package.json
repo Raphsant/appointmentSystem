@@ -21,7 +21,7 @@
     "@pinia/nuxt": "^0.4.7",
     "@sidebase/nuxt-auth": "^0.4.4",
     "autoprefixer": "^10.4.14",
-    "next-auth": "4.18.8",
+    "next-auth": "*",
     "pinia": "^2.0.33",
     "pinia-plugin-persistedstate": "^3.1.0",
     "postcss": "^8.4.21"

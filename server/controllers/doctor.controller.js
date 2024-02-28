@@ -58,7 +58,8 @@ exports.getAllDoctors = async (req, res) => {
 
 exports.getDoctor = async (req, res) => {
   try {
-    const doctor = await Doctor.findByPk(req.body.id);
+    // console.log(req.query)
+    const doctor = await Doctor.findByPk(req.query.id);
     if (!doctor) throw new Error("No doctor found");
     await res.status(200).send(doctor);
   } catch (e) {

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex sticky top-0">
+  <div class="flex h-full">
     <div
-        class="bg-neutral-100 m-6 h-120 rounded-xl flex flex-col justify-center items-center w-fit p-5 shadow-2xl grow">
+        class="bg-neutral-100 m-6 h-120 rounded-xl flex flex-col justify-center items-center w-fit p-5 shadow-md grow">
       <ul class="flex flex-row gap-5 grow">
         <li>
           <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white">
@@ -16,17 +16,19 @@
           </div>
         </li>
         <li>
-          <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white">Mis Citas
+          <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white"><NuxtLink to="/myapts">
+            Mis Citas
+          </NuxtLink>
           </div>
         </li>
         <li>
-          <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white">
+          <NuxtLink to="/profile"><div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white">
             Mi Perfil
-          </div>
+          </div></NuxtLink>
         </li>
       </ul>
     </div>
-    <div class="bg-neutral-100 m-6 h-120 rounded-xl flex flex-col justify-center items-center w-fit p-5 shadow-2xl">
+    <div class="bg-neutral-100 m-6 h-120 rounded-xl flex flex-col justify-center items-center w-fit p-5 shadow-md">
       <ul class="flex flex-row gap-5">
         <li>
           <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white"
@@ -39,8 +41,8 @@
           </div>
         </li>
         <li>
-          <div class="text-green-800 font-light p-2 rounded-xl shadow-2xl hover:bg-green-600 hover:text-white">Registro
-          </div>
+          <NuxtLink to="signup"><div class="text-green-800 font-light p-2 rounded-xl shadow-md hover:bg-green-600 hover:text-white">Registro
+          </div></NuxtLink>
         </li>
       </ul>
     </div>
