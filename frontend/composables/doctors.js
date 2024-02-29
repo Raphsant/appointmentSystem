@@ -4,8 +4,8 @@ export async function useDoctors(id) {
   const authStore = useAuthStore();
   const user = JSON.parse(JSON.stringify(authStore.getUser));
   const url = id
-    ? `http://localhost:8080/api/getDoctor?id=${id}`
-    : "http://localhost:8080/api/doctor";
+    ? `https://postgresapp-e83cc2ceb04b.herokuapp.com/api/getDoctor?id=${id}`
+    : "https://postgresapp-e83cc2ceb04b.herokuapp.com/api/doctor";
   try {
     const res = await $fetch(url, {
       method: "GET",

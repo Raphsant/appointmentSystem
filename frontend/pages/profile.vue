@@ -14,7 +14,7 @@ const isLoading = ref(false)
 
 
 async function getUserProfile() {
-  const url = `http://localhost:8080/api/user/profile`;
+  const url = `https://postgresapp-e83cc2ceb04b.herokuapp.com/api/user/profile`;
   try {
     const {pending, data: res} = await useLazyAsyncData(() => $fetch(url, {
       method: "GET",
@@ -34,7 +34,7 @@ async function getUserProfile() {
 }
 
 async function updateUserProfile() {
-  const url = `http://localhost:8080/api/user/update`;
+  const url = `https://postgresapp-e83cc2ceb04b.herokuapp.com/api/user/update`;
   try {
     isLoading.value = true;
     const res = await $fetch(url, {

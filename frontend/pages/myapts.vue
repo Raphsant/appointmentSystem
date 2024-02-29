@@ -7,7 +7,7 @@ const user = JSON.parse(JSON.stringify(authStore.getUser));
 const apts = ref([]); // Define a reactive variable to store appointments
 
 async function getApts() {
-  const url = `http://localhost:8080/api/apts/getUserApts`;
+  const url = `https://postgresapp-e83cc2ceb04b.herokuapp.com/api/apts/getUserApts`;
   try {
     const res = await $fetch(url, {
       method: "GET",

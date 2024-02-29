@@ -4,7 +4,7 @@ export default async function (data) {
   const authStore = useAuthStore();
   try {
     console.log("trying");
-    const res = await $fetch("http://localhost:8080/api/auth/signin", {
+    const res = await $fetch("https://postgresapp-e83cc2ceb04b.herokuapp.com/api/auth/signin", {
       method: "POST",
       body: data,
     });

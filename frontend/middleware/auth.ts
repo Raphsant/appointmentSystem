@@ -11,7 +11,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   async function checkValidToken() {
     try {
-      const res = await $fetch("http://localhost:8080/api/auth/validate", {
+      const res = await $fetch("https://postgresapp-e83cc2ceb04b.herokuapp.com/api/auth/validate", {
         method: "GET",
         headers: {
           "x-access-token": user.token,

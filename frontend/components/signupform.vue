@@ -16,7 +16,7 @@ const isLoading = ref(false);
 async function signup(data) {
   try {
     isLoading.value = true;
-    const res = await $fetch("http://localhost:8080/api/auth/signup", {
+    const res = await $fetch("https://postgresapp-e83cc2ceb04b.herokuapp.com/api/auth/signup", {
       method: "POST",
       body: data
     })

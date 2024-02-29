@@ -83,7 +83,7 @@ const confirmation = ref("")
 
 
 async function getDoctor() {
-  const url = `http://localhost:8080/api/getDoctor?id=${route.params.id}`
+  const url = `https://postgresapp-e83cc2ceb04b.herokuapp.com/api/getDoctor?id=${route.params.id}`
   try {
     const res = await $fetch(url, {
       method: "GET",
@@ -212,7 +212,7 @@ async function handleClick() {
 
 
   try {
-    const res = await $fetch("http://localhost:8080/api/apts/create", {
+    const res = await $fetch("https://postgresapp-e83cc2ceb04b.herokuapp.com/api/apts/create", {
       method: "POST",
       headers: {
         "x-access-token": user.token,
@@ -240,7 +240,7 @@ async function handleClick() {
 async function getApts() {
   try {
     console.log(doctor.id)
-    const res = await $fetch("http://localhost:8080/api/apts/getDoctorApts", {
+    const res = await $fetch("https://postgresapp-e83cc2ceb04b.herokuapp.com/api/apts/getDoctorApts", {
       method: "get",
       headers: {
         "x-access-token": user.token,
