@@ -1,21 +1,23 @@
 <template>
   <div class="w-screen flex justify-center items-center gap-4 px-40 py-10">
-    <div class="bg-emerald-200 w-fit flex flex-col justify-center items-center gap-4 py-10 px-8 rounded-lg">
-      <div v-if="!showConfirmation">
-        <div class="text-2xl">
-          Dr. {{ doctor.firstName }} {{ doctor.lastName }}
+    <div class="bg-gradient-to-br from-white to-gray-200/40 w-2/3 flex flex-col justify-center items-center gap-4 py-10 px-8 shadow-gray-400 shadow-2xl rounded-lg">
+      <div class="flex justify-center items-center flex-col" v-if="!showConfirmation">
+        <div class="flex flex-col justify-center items-center w-full gap-2">
+          <div class="text-4xl">
+            Dr. {{ doctor.firstName }} {{ doctor.lastName }}
+          </div>
+          <div class="text-xl">
+            {{ doctor.specialty }}
+          </div>
         </div>
-        <div class="text-xl">
-          {{ doctor.specialty }}
-        </div>
-        <div class="bg-green-400 p-5 rounded-t-lg shadow-lg flex justify-center items-center flex-col gap-4">
+        <div class="p-5 w-[50rem] flex justify-center items-center flex-col gap-4">
           <div>
             Fechas Disponibles
           </div>
           <div class="grid grid-cols-4 gap-10">
             <div
-                :class="{'bg-cyan-100 outline outline-cyan-300': selectedDate.selectedDateStr === date}"
-                class="px-1 py-2 bg-white rounded-md shadow-xl text-center hover:bg-cyan-100 cursor-pointer hover:outline hover:outline-cyan-300"
+                :class="{'shadow-inner shadow-black  bg-blue-500 font-bold': selectedDate.selectedDateStr === date}"
+                class=" w-[12rem] max-w-[12rem] px-1 py-2 bg-indigo-600 text-white rounded-md shadow-2xl shadow-gray-600 text-center hover:bg-indigo-800 cursor-pointer hover:shadow-inner hover:shadow-black"
                 v-for="date in upcomingAvailableDates" @click="selectedDate = {
             selectedDateStr: date,
             startTime: getTimeSlotsForDate(date, doctor.schedule).startTime,
@@ -29,12 +31,12 @@
           </div>
         </div>
         <div v-if="selectedDate"
-             class="bg-green-400 rounded-b-lg shadow-lg p-5 justify-center items-center flex flex-col gap-4">
+             class=" rounded-b-lg  p-5 justify-center items-center flex flex-col gap-4">
           <div
-              class="bg-green-400  rounded-b-lg flex justify-center items-center flex-col gap-4 grid-cols-4 grid">
+              class=" rounded-b-lg flex justify-center items-center flex-col gap-4 grid-cols-4 grid">
             <div
-                :class="{'bg-cyan-100 outline outline-cyan-300': selectedTime === slot}"
-                class="px-1 py-2 bg-white rounded-md shadow-xl text-center hover:bg-cyan-100 cursor-pointer hover:outline hover:outline-cyan-300"
+                :class="{'shadow-inner shadow-black  bg-blue-500 font-bold': selectedTime === slot}"
+                class="px-1 py-2 bg-indigo-600 text-white rounded-md shadow-2xl shadow-gray-600 text-center hover:bg-indigo-800 cursor-pointer hover:shadow-inner hover:shadow-black"
                 v-for="slot in generateDateTimeSlots(selectedDate?.selectedDateStr, selectedDate.startTime, selectedDate.endTime, bookedApts)"
                 @click="selectedTime = slot">
               {{ convertTo12Hours(slot) }}
@@ -42,7 +44,7 @@
           </div>
           <div>
             <button
-                class="bg-white px-1 py-2 bg-white rounded-md shadow-xl text-center hover:bg-cyan-100 cursor-pointer hover:outline hover:outline-cyan-300 flex justify-center items-center px-4"
+                class="px-4 py-2 bg-white text-black rounded-md shadow-2xl shadow-gray-600 text-center hover:bg-indigo-800 hover:text-white cursor-pointer hover:shadow-inner hover:shadow-black"
                 @click="handleClick">
               <svg v-if="isLoading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-indigo-500"
                    xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -61,7 +63,7 @@
           Cita Confirmada para el dia:
           {{ formatDateTime(confirmation.dateTime) }}
         </div>
-        <div class="bg-white px-1 py-2 bg-white rounded-md shadow-xl text-center hover:bg-cyan-100 cursor-pointer hover:outline hover:outline-cyan-300 flex justify-center items-center px-4">
+        <div class="px-1 py-2 bg-indigo-600 text-white rounded-md shadow-2xl shadow-gray-600 text-center hover:bg-indigo-800 cursor-pointer hover:shadow-inner hover:shadow-black">
           <NuxtLink to="/"> Regresar a Mis Citas </NuxtLink>
         </div>
       </div>

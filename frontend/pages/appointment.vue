@@ -1,17 +1,19 @@
 <template>
-<div class="grid grid-cols-3 gap-10 justify-center items-center place-items-center w-full">
-  <div class="bg-slate-100 shadow-xl rounded-lg px-6 py-4 h-fit w-[35rem]" v-for="doctor in doctors">
-    <div class=" flex gap-5 flex-col">
-      <div class="flex flex-col gap-4">
+<div class="flex flex-col gap-10 justify-center items-center place-items-center w-full">
+  <div class="bg-white shadow-2xl shadow-gray-400 rounded-lg px-6 py-4 h-fit w-[60rem]" v-for="doctor in doctors">
+    <div class="flex gap-5 flex-row justify-between items-center w-full ">
+      <div class="flex flex-col w-fit">
         <div class="p-2 rounded-lg  w-fit flex-col">
           <div class="text-3xl">
             {{ doctor.firstName }} {{doctor.lastName}}
           </div>
-          <div class="text-2xl">
+          <div class="text-lg">
             {{ doctor.specialty }}
           </div>
         </div>
-        <div class="flex flex-row gap-10 bg-green-400/20 p-2 rounded-lg shadow-xl">
+      </div>
+      <div>
+        <div class="flex flex-row gap-10 p-2">
           <div class="flex flex-col" v-if="doctor.schedule?.Monday?.active">
             <div>Lunes</div>
             <div>{{ doctor.schedule?.Monday?.times.startTime }}</div>
@@ -38,7 +40,7 @@
         </div>
         </div>
       </div>
-      <div class="bg-green-400/20 rounded-lg w-fit p-2 shadow-lg">
+      <div class="white/20 rounded-lg w-fit p-2 shadow-lg shadow-gray-400/50 border border-blue-400 hover:bg-blue-400 hover:text-white cursor-pointer">
        <NuxtLink :to="`doctor/${doctor.id}`"><button>Agendar Cita</button></NuxtLink>
       </div>
     </div>

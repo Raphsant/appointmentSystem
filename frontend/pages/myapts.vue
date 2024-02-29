@@ -64,17 +64,19 @@ function formatDateTime(dateTimeString) {
       <div class="text-3xl">
         Mis Citas
       </div>
-      <div class="bg-emerald-600 w-full rounded-xl flex justify-center items-center place-items-center gap-10 p-4">
+      <div class="w-full bg-gradient-to-br from-white to-gray-200/40 rounded-xl shadow-2xl shadow-black/30 flex justify-center items-center place-items-center gap-10 p-4">
         <div>
           <div
-              class="bg-cream/90 w-fit max-h-80 overflow-y-auto  flex flex-col p-4 gap-2 shadow-inner shadow-black rounded-lg m-1 justify-center items-center">
+              class="w-full   grid grid-cols-3 place-items-center p-4 rounded-lg m-1 justify-center items-center">
             <div
-                class="rounded-lg w-[40rem] flex flex-col justify-center items-center bg-cream w-fit p-2 m-1 shadow-inner shadow-black/30 hover:shadow-lg hover:shadow-black/40 hover:bg-amber-50 cursor-pointer"
+                class="rounded-lg w-[16rem] h-[10rem] bg-indigo-300 flex flex-col text-center justify-around items-center p-2 m-1"
                 v-for="apt in apts" :key="apt.id">
               <div>
                 <div>
                   {{ apt?.doctor?.specialty }}
                 </div>
+              </div>
+              <div>
                 <div>
                   {{ apt?.doctor?.firstName }} {{ apt?.doctor?.lastName }}
                 </div>

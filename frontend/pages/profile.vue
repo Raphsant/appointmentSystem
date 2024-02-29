@@ -5,9 +5,9 @@ const authStore = useAuthStore();
 const user = JSON.parse(JSON.stringify(authStore.getUser));
 const userInfo = ref(await getUserProfile());
 const userForm = ref({
-  firstName: userInfo.value.firstName,
-  lastName: userInfo.value.lastName,
-  email: userInfo.value.email
+  firstName: userInfo?.value?.firstName,
+  lastName: userInfo?.value?.lastName,
+  email: userInfo?.value?.email
 })
 const isEditFormActive = ref(false)
 const isLoading = ref(false)

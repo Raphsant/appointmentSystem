@@ -1,5 +1,5 @@
 <template>
-  <div class="font-custom">
+  <div class="">
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
@@ -15,9 +15,11 @@ console.log(user)
 
 
 </script>
-<style lang="css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 html {
-  background: rgba(19, 20, 23, 0.28);
+  background: rgba(166, 186, 253, 0.38);
+  font-family: "Nunito", sans-serif;
 }
 </style>
 
